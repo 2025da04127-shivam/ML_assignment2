@@ -2,8 +2,7 @@
 
 **Course:** M.Tech (AIML/DSE) — Machine Learning  
 **Submission Deadline:** 18-Aug-2026  
-**Student Name:** Shivam Kumar Singh  
-**Marks:** 15 
+**Student Name:** Shivam Kumar Singh
 
 ---
 
