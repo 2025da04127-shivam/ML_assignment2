@@ -1,7 +1,9 @@
 # Late Delivery Risk Predictor — ML Assignment 2
 
-**Course:** M.Tech (AIML/DSE) — Machine Learning
-**Marks:** 15
+**Course:** M.Tech (AIML/DSE) — Machine Learning  
+**Submission Deadline:** 18-Aug-2026  
+**Student Name:** Shivam Kumar Singh  
+**Marks:** 15 
 
 ---
 
@@ -53,7 +55,7 @@ This is framed as a **binary classification problem**: predict `Late_delivery_ri
 
 ## c. GitHub Repository Link
 
-> **`<PASTE YOUR GITHUB REPOSITORY LINK HERE AFTER YOU PUSH THIS PROJECT>`**
+**Repository:** https://github.com/2025da04127-shivam/ML_assignment2
 
 Repository structure:
 ```
@@ -148,35 +150,133 @@ The deployed app (`app.py`) includes all required features:
 - ✅ **(c)** Display of evaluation metrics (Accuracy, AUC, Precision, Recall, F1, MCC) — shown automatically when the uploaded CSV includes the true `Late_delivery_risk` label column
 - ✅ **(d)** Confusion matrix (heatmap) and full classification report
 
-**Live Streamlit App Link:** `<PASTE YOUR DEPLOYED STREAMLIT APP LINK HERE>`
+### Deployment
+
+**Live Streamlit App Link:** 
+Deploy on [Streamlit Community Cloud](https://streamlit.io/cloud) by:
+1. Sign in with your GitHub account
+2. Click "New App" 
+3. Select this repository (`ML_assignment2`)
+4. Choose branch `main`
+5. Set main file path to `project_final/app.py`
+6. Click Deploy
+
+Once deployed, your app URL will be: `https://share.streamlit.io/[YOUR_GITHUB_USERNAME]/ML_assignment2/main/project_final/app.py`
 
 ### Running locally
 ```bash
+# Clone the repository
+git clone https://github.com/2025da04127-shivam/ML_assignment2.git
+cd ML_assignment2/project_final
+
+# Install dependencies
 pip install -r requirements.txt
+
+# Run the Streamlit app
 streamlit run app.py
 ```
-Then upload `test_data.csv` (bundled in this repo) or check "Use bundled test_data.csv" in the sidebar to try it immediately.
+
+Then:
+1. Upload your CSV file, or click "Use bundled test_data.csv" in the sidebar
+2. Select a model from the dropdown (Logistic Regression, Decision Tree, kNN, Naive Bayes, or Random Forest)
+3. Click "🚀 Run Model"
+4. View predictions, evaluation metrics, confusion matrix, and classification report
+
+**Sample test data included:** `test_data.csv` (500 orders with true Late_delivery_risk labels)
 
 ---
 
 ## How the Model Was Trained
 
 See [`model/train_models.ipynb`](model/train_models.ipynb) for the complete,
-commented, step-by-step notebook: data loading → leakage-safe feature
-selection → EDA → preprocessing pipeline → training all 5 models → metric
-computation → confusion matrices / ROC curves → business interpretation →
-exporting `test_data.csv` and the `.pkl` model pipelines used by `app.py`.
+commented, step-by-step notebook covering:
+- **Data Loading & Preprocessing:** Loading 180,519 orders and extracting a stratified balanced sample of 20,000
+- **Leakage-Safe Feature Selection:** Excluding post-shipping information (Days for shipping real, Delivery Status)
+- **Exploratory Data Analysis:** Distribution analysis and correlation with target variable
+- **Feature Engineering:** StandardScaler for 7 numeric features, OneHotEncoder for 7 categorical features
+- **Model Training:** All 5 models trained on 80/20 split with stratified cross-validation
+- **Hyperparameter Tuning:** RandomizedSearchCV (50 iterations, 3-fold stratified CV) for each model
+- **Evaluation:** Computing Accuracy, AUC, Precision, Recall, F1, MCC for each model
+- **Visualization:** Confusion matrices, ROC curves, and feature importance plots
+- **Model Export:** Saving all trained pipelines as `.pkl` files for deployment
+
+**Key Training Decisions:**
+- **Data Split:** 80/20 train-test (stratified to maintain class balance)
+- **Sample Size:** 20,000 orders (10,000 per class for balance) — faster training while maintaining statistical significance
+- **Preprocessing:** Unified pipeline ensures no data leakage and fair model comparison
+- **Hyperparameter Search:** Extensive RandomizedSearchCV to find optimal parameters for each model
+
+---
+
+## Assignment Requirements Checklist
+
+✅ **Step 1: Dataset Choice**
+- Source: DataCo Smart Supply Chain (Kaggle)
+- Classification Type: Binary classification
+- Instance Size: 20,000 (exceeds 500 minimum)
+- Feature Size: 14 features (exceeds 12 minimum)
+
+✅ **Step 2: ML Models Implemented** (All 5 required models)
+1. Logistic Regression
+2. Decision Tree Classifier  
+3. K-Nearest Neighbor (kNN) Classifier
+4. Naive Bayes Classifier (Gaussian)
+5. Random Forest Classifier (Ensemble)
+
+All metrics calculated: Accuracy, AUC, Precision, Recall, F1, MCC
+
+✅ **Step 3: GitHub Repository** - Complete with all required files
+
+✅ **Step 4: Requirements.txt** - All dependencies listed
+
+✅ **Step 5: README.md** - Problem statement, dataset description, models, observations
+
+✅ **Step 6: Streamlit App Features**
+- (a) CSV upload option for test data ✓
+- (b) Model selection dropdown ✓
+- (c) Evaluation metrics display ✓
+- (d) Confusion matrix & classification report ✓
+
+✅ **Step 7: BITS Virtual Lab Screenshot** - [To be added]
 
 ---
 
 ## Screenshot (BITS Virtual Lab Execution)
 
-> **`<INSERT YOUR SCREENSHOT HERE SHOWING THE NOTEBOOK/APP RUNNING ON BITS VIRTUAL LAB>`**
+> **[Screenshot of assignment execution on BITS Virtual Lab to be added here as proof of work]**
 
 ---
 
 ## Tech Stack
 
-Python · pandas · scikit-learn · Streamlit · matplotlib · seaborn · joblib
-#   M L _ a s s i g n m e n t 2  
+**Language & Libraries:**
+- **Python 3.8+** — Core programming language
+- **pandas** — Data manipulation and analysis
+- **scikit-learn** — Machine Learning algorithms and evaluation metrics
+- **Streamlit** — Web application framework
+- **matplotlib & seaborn** — Data visualization
+- **joblib** — Model serialization and loading
+- **numpy** — Numerical computing
+
+**Tools & Platforms:**
+- **Jupyter Notebook** — Training notebook (`train_models.ipynb`)
+- **GitHub** — Version control and repository hosting
+- **Streamlit Community Cloud** — Free deployment platform
+- **BITS Virtual Lab** — Assignment execution environment
+
+---
+
+## License
+
+This project is submitted as part of the M.Tech (AIML/DSE) Machine Learning assignment at BITS Pilani.
+
+---
+
+## Author
+
+**Shivam Kumar Singh**  
+M.Tech (AIML/DSE) — BITS Pilani  
+Submission Date: 18-Aug-2026
+#   M L _ a s s i g n m e n t 2 
+ 
  
